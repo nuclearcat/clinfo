@@ -4771,6 +4771,10 @@ int main(int argc, char *argv[])
 			parse_device_spec(argv[a] + 2, &output);
 		} else if (!strcmp(argv[a], "--prop")) {
 			++a;
+			if (argv[a] == NULL) {
+				fprintf(stderr, "please specify a property name after --prop\n");
+				exit(1);
+			}
 			parse_prop(argv[a], &output);
 		} else if (!strcmp(argv[a], "-?") || !strcmp(argv[a], "-h") || !strcmp(argv[a], "--help")) {
 			usage();
